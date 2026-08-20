@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cm0-bsp-builder"
+version = "0.2.0"
+description = "Build an AArch64 application sysroot from a Raspberry Pi OS image"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "LILYGO" }]
+dependencies = []
+
+[project.scripts]
+cm0-bsp = "cm0_bsp_builder.cli:main"
+
+[tool.setuptools.package-data]
+cm0_bsp_builder = ["profiles/*.json", "resources/*.cmake"]

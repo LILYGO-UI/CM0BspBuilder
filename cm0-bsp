@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+project_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+if [ -n "${PYTHONPATH:-}" ]; then
+    PYTHONPATH="$project_dir/src:$PYTHONPATH"
+else
+    PYTHONPATH="$project_dir/src"
+fi
+export PYTHONPATH
+
+exec python3 -m cm0_bsp_builder "$@"
